@@ -4,12 +4,12 @@
     href = null
 -%}
 
+<{{ href ? 'a' : 'span' }}
+    class="navbar-brand {{ attributes.render('class') }}"
 {% if href %}
-<a class="navbar-brand {{ attributes.render('class') }}" href="{{ href }}" {{ attributes }}>
-    {%- block content %}{% endblock -%}
-</a>
-{% else %}
-<span class="navbar-brand {{ attributes.render('class') }}" {{ attributes }}>
-    {%- block content %}{% endblock -%}
-</span>
+    href="{{ href }}"
 {% endif %}
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
+</{{ href ? 'a' : 'span' }}>
