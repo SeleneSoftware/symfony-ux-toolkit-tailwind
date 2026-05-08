@@ -5,5 +5,8 @@
     "description": "Bootstrap button group component for grouping buttons together.",
     "copy-files": {
         "templates/": "templates/"
+    },
+    "dependencies": {
+        "recipe": ["button"]
     }
 }
