@@ -1,0 +1,15 @@
+{# @prop href string URL for the nav link #}
+{# @prop active boolean Whether this is the current active page #}
+{# @prop disabled boolean Whether this nav item is disabled #}
+{# @block content The nav link text #}
+{%- props
+    href = null,
+    active = false,
+    disabled = false
+-%}
+
+<li class="nav-item">
+    <a class="nav-link{% if active %} active{% endif %}{% if disabled %} disabled{% endif %} {{ attributes.render('class') }}" href="{{ href ?: '#' }}" {% if active %}aria-current="page"{% endif %} {{ attributes }}>
+        {%- block content %}{% endblock -%}
+    </a>
+</li>

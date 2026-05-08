@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
+    "type": "component",
+    "name": "Navbar",
+    "description": "Bootstrap navbar component for responsive navigation headers.",
+    "copy-files": {
+        "templates/": "templates/"
+    }
+}
