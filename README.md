@@ -2,8 +2,8 @@
 
 ## Requirements
 
-- [Boostrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/download/)
 - [Symfony UX Toolkit](https://ux.symfony.com/toolkit)
+- [Installation](INSTALL.md)
 
 ## Component installation
 
