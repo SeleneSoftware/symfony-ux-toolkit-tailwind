@@ -7,9 +7,7 @@
 -%}
 
 <li class="breadcrumb-item{% if active %} active{% endif %}" {% if active %}aria-current="page"{% endif %}>
-    {% if active or not href %}
-        {%- block content %}{% endblock -%}
-    {% else %}
-        <a href="{{ href }}">{%- block link_content %}{% endblock -%}</a>
-    {% endif %}
+    {% if not active and href %}<a href="{{ href }}">{% endif %}
+    {%- block content %}{% endblock -%}
+    {% if not active and href %}</a>{% endif %}
 </li>
