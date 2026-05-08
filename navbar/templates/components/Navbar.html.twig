@@ -17,19 +17,13 @@
 -%}
 
 <nav class="navbar{% if expand %} navbar-expand-{{ expand }}{% endif %}{% if variant %} navbar-{{ variant }}{% endif %}{% if bg %} bg-{{ bg }}{% endif %}{% if placement %} {{ placement }}{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
-    {% if container %}
-    <div class="container{% if container == 'fluid' %}-fluid{% endif %}">
-    {% endif %}
-
+    {% if container %}<div class="container{% if container == 'fluid' %}-fluid{% endif %}">{% endif %}
         {%- block brand %}{% endblock -%}
 
         {%- block toggler %}{% endblock -%}
 
         <div class="collapse navbar-collapse" id="{{ id }}">
-            {%- block navigation %}{% endblock -%}
+            {%- block content %}{% endblock -%}
         </div>
-
-    {% if container %}
-    </div>
-    {% endif %}
+    {% if container %}</div>{% endif %}
 </nav>
