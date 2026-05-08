@@ -5,7 +5,7 @@
 {# @prop type 'button'|'submit'|'reset' The button type. Defaults to `button` #}
 {# @prop href string URL if rendering as link. If set, renders as <a> instead of <button> #}
 {# @block content The button label and/or icon #}
-{%- props 
+{%- props
     variant = 'primary',
     size = null,
     outline = false,
@@ -17,22 +17,16 @@
 {%- set variantClass = outline ? 'btn-outline-' ~ variant : 'btn-' ~ variant -%}
 {%- set sizeClass = size ? 'btn-' ~ size : '' -%}
 
+<{{ href ? 'a' : 'button' }}
+    class="{{ [baseClass, variantClass, sizeClass, attributes.render('class')]|filter(v => v)|join(' ') }}"
 {% if href %}
-<a
     href="{{ href }}"
-    class="{{ [baseClass, variantClass, sizeClass, attributes.render('class')]|filter(v => v)|join(' ') }}"
     {% if disabled %}aria-disabled="true" class="disabled"{% endif %}
-    {{ attributes }}
->
-    {%- block content %}{% endblock -%}
-</a>
 {% else %}
-<button
     type="{{ type }}"
-    class="{{ [baseClass, variantClass, sizeClass, attributes.render('class')]|filter(v => v)|join(' ') }}"
     {% if disabled %}disabled{% endif %}
+{% endif %}
     {{ attributes }}
 >
     {%- block content %}{% endblock -%}
-</button>
-{% endif %}
+</{{ href ? 'a' : 'button' }}>
