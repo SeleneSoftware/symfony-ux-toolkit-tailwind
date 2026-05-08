@@ -1,20 +1,16 @@
-{# @block header Optional card header content #}
-{# @block body The main card body content #}
-{# @block footer Optional card footer content #}
-{# @block image Optional card image (top or bottom) #}
+{# @block header Optional card header content (typically Card:Header) #}
+{# @block image Optional card image (typically Card:Image) #}
+{# @block content The card body content #}
+{# @block footer Optional card footer content (typically Card:Footer) #}
+
 <div class="card {{ attributes.render('class') }}" {{ attributes }}>
-    {% block header %}
-    {% endblock %}
-    
-    {% block image %}
-    {% endblock %}
-    
-    {% block body %}
+    {%- block header %}{% endblock -%}
+
+    {%- block image %}{% endblock -%}
+
     <div class="card-body">
         {%- block content %}{% endblock -%}
     </div>
-    {% endblock %}
-    
-    {% block footer %}
-    {% endblock %}
+
+    {%- block footer %}{% endblock -%}
 </div>
