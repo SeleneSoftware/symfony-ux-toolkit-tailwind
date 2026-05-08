@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
+    "type": "component",
+    "name": "Toast",
+    "description": "Bootstrap toast component for lightweight notifications.",
+    "copy-files": {
+        "templates/": "templates/"
+    }
+}

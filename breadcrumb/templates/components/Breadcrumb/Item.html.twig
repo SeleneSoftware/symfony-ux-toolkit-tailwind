@@ -1,0 +1,15 @@
+{# @prop href string URL for the breadcrumb link #}
+{# @prop active boolean Whether this is the current/active item #}
+{# @block content The breadcrumb item content #}
+{%- props 
+    href = null,
+    active = false
+-%}
+
+<li class="breadcrumb-item{% if active %} active{% endif %}" {% if active %}aria-current="page"{% endif %}>
+    {% if active or not href %}
+        {%- block content %}{% endblock -%}
+    {% else %}
+        <a href="{{ href }}">{%- block link_content %}{% endblock -%}</a>
+    {% endif %}
+</li>

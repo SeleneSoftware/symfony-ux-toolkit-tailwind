@@ -1,0 +1,30 @@
+{# @prop value number The progress value (0-100) #}
+{# @prop max number The maximum value. Defaults to 100 #}
+{# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark' The progress bar color. Defaults to `primary` #}
+{# @prop striped boolean Whether to show stripes #}
+{# @prop animated boolean Whether to animate the stripes #}
+{# @prop height string The height of the progress bar (e.g., '20px') #}
+{%- props 
+    value = 0,
+    max = 100,
+    variant = 'primary',
+    striped = false,
+    animated = false,
+    height = null
+-%}
+
+<div class="progress {{ attributes.render('class') }}" 
+    {% if height %}style="height: {{ height }}"{% endif %}
+    {{ attributes }}
+>
+    <div
+        class="progress-bar bg-{{ variant }}{% if striped %} progress-bar-striped{% endif %}{% if animated %} progress-bar-animated{% endif %}"
+        role="progressbar"
+        style="width: {{ (value / max * 100)|round }}%"
+        aria-valuenow="{{ value }}"
+        aria-valuemin="0"
+        aria-valuemax="{{ max }}"
+    >
+        {%- block content %}{{ value }}%{% endblock -%}
+    </div>
+</div>

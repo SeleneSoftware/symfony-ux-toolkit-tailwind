@@ -1,0 +1,13 @@
+{# @prop size 'sm'|'lg' The pagination size. Defaults to normal #}
+{# @prop alignment 'start'|'center'|'end' The alignment of the pagination. Defaults to start #}
+{# @block content The pagination items (typically Pagination:Item components) #}
+{%- props 
+    size = null,
+    alignment = null
+-%}
+
+<nav aria-label="Page navigation">
+    <ul class="pagination{% if size %} pagination-{{ size }}{% endif %}{% if alignment %} justify-content-{{ alignment }}{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
+        {%- block content %}{% endblock -%}
+    </ul>
+</nav>

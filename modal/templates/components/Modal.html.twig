@@ -1,0 +1,45 @@
+{# @prop id string The modal id (required for targeting) #}
+{# @prop size 'sm'|'lg'|'xl' The modal size #}
+{# @prop centered boolean Whether to vertically center the modal #}
+{# @prop scrollable boolean Whether content is scrollable #}
+{# @prop staticBackdrop boolean Whether to disable backdrop click to close #}
+{# @block header The modal header content #}
+{# @block body The modal body content #}
+{# @block footer The modal footer content (typically with action buttons) #}
+{%- props 
+    id,
+    size = null,
+    centered = false,
+    scrollable = false,
+    staticBackdrop = false
+-%}
+
+<div
+    class="modal fade"
+    id="{{ id }}"
+    tabindex="-1"
+    aria-labelledby="{{ id }}Label"
+    aria-hidden="true"
+    {% if staticBackdrop %}data-bs-backdrop="static" data-bs-keyboard="false"{% endif %}
+>
+    <div class="modal-dialog{% if size %} modal-{{ size }}{% endif %}{% if centered %} modal-dialog-centered{% endif %}{% if scrollable %} modal-dialog-scrollable{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
+        <div class="modal-content">
+            {% if block('header') is defined %}
+            <div class="modal-header">
+                {%- block header %}{% endblock -%}
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            {% endif %}
+            
+            <div class="modal-body">
+                {%- block body %}{% endblock -%}
+            </div>
+            
+            {% if block('footer') is defined %}
+            <div class="modal-footer">
+                {%- block footer %}{% endblock -%}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

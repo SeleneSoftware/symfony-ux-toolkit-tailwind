@@ -1,0 +1,25 @@
+{# @prop id string The tab pane id (should match Tabs:Pane id) #}
+{# @prop active boolean Whether this tab is active #}
+{# @prop disabled boolean Whether this tab is disabled #}
+{# @block content The tab label content #}
+{%- props 
+    id,
+    active = false,
+    disabled = false
+-%}
+
+<li class="nav-item" role="presentation">
+    <button
+        class="nav-link{% if active %} active{% endif %}{% if disabled %} disabled{% endif %}"
+        id="{{ id }}-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#{{ id }}"
+        type="button"
+        role="tab"
+        aria-controls="{{ id }}"
+        {% if active %}aria-selected="true"{% endif %}
+        {% if disabled %}disabled{% endif %}
+    >
+        {%- block content %}{% endblock -%}
+    </button>
+</li>

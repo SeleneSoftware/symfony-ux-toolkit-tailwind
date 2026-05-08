@@ -1,0 +1,39 @@
+{# @prop id string The tabs container id (required) #}
+{# @prop pills boolean Whether to use pill style. Defaults to false #}
+{# @prop vertical boolean Whether to display tabs vertically. Defaults to false #}
+{# @prop justified boolean Whether tabs should be justified. Defaults to false #}
+{# @block navigation The tab navigation items (typically Tabs:Item components) #}
+{# @block content The tab pane content (typically Tabs:Pane components) #}
+{%- props 
+    id,
+    pills = false,
+    vertical = false,
+    justified = false
+-%}
+
+<div class="{% if vertical %}row{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
+    {% if vertical %}
+    <div class="col-3">
+    {% endif %}
+    
+    <ul class="nav nav-{{ pills ? 'pills' : 'tabs' }}{% if vertical %} flex-column{% endif %}{% if justified %} nav-justified{% endif %}" 
+        id="{{ id }}" 
+        role="tablist"
+        aria-orientation="{% if vertical %}vertical{% else %}horizontal{% endif %}"
+    >
+        {%- block navigation %}{% endblock -%}
+    </ul>
+    
+    {% if vertical %}
+    </div>
+    <div class="col-9">
+    {% endif %}
+    
+    <div class="tab-content" id="{{ id }}Content">
+        {%- block content %}{% endblock -%}
+    </div>
+    
+    {% if vertical %}
+    </div>
+    {% endif %}
+</div>

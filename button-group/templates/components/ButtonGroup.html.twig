@@ -1,0 +1,11 @@
+{# @prop size 'sm'|'lg' The button group size. Defaults to normal #}
+{# @prop vertical boolean Whether to display buttons vertically. Defaults to false #}
+{# @block content The buttons to group (use Bootstrap:Button components) #}
+{%- props 
+    size = null,
+    vertical = false
+-%}
+
+<div class="btn-group{% if vertical %}-vertical{% endif %}{% if size %} btn-group-{{ size }}{% endif %} {{ attributes.render('class') }}" role="group" {{ attributes }}>
+    {%- block content %}{% endblock -%}
+</div>

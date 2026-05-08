@@ -1,0 +1,33 @@
+{# @prop label string The checkbox label #}
+{# @prop checked boolean Whether the checkbox is checked #}
+{# @prop disabled boolean Whether the checkbox is disabled #}
+{# @prop inline boolean Whether to display inline #}
+{# @prop name string The checkbox name attribute #}
+{# @prop value string The checkbox value attribute #}
+{# @prop id string The checkbox id attribute #}
+{%- props 
+    label = null,
+    checked = false,
+    disabled = false,
+    inline = false,
+    name = null,
+    value = '1',
+    id = null
+-%}
+
+<div class="form-check{% if inline %} form-check-inline{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
+    <input
+        type="checkbox"
+        class="form-check-input"
+        {% if id %}id="{{ id }}"{% endif %}
+        {% if name %}name="{{ name }}"{% endif %}
+        value="{{ value }}"
+        {% if checked %}checked{% endif %}
+        {% if disabled %}disabled{% endif %}
+    />
+    {% if label %}
+    <label class="form-check-label" {% if id %}for="{{ id }}"{% endif %}>
+        {{ label }}
+    </label>
+    {% endif %}
+</div>

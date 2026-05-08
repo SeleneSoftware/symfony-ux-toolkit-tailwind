@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
+    "type": "component",
+    "name": "Alert",
+    "description": "Bootstrap alert component for displaying contextual feedback messages.",
+    "copy-files": {
+        "templates/": "templates/"
+    }
+}

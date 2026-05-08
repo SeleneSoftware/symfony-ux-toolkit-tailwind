@@ -1,0 +1,11 @@
+{# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark' The badge style variant. Defaults to `primary` #}
+{# @prop pill boolean Whether to use pill style. Defaults to false #}
+{# @block content The badge content #}
+{%- props 
+    variant = 'primary',
+    pill = false
+-%}
+
+<span class="badge bg-{{ variant }}{% if pill %} rounded-pill{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
+    {%- block content %}{% endblock -%}
+</span>

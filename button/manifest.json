@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
+    "type": "component",
+    "name": "Button",
+    "description": "A clickable button element that triggers actions or events, supporting Bootstrap variants and sizes.",
+    "copy-files": {
+        "templates/": "templates/"
+    }
+}

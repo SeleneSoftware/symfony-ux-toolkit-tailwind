@@ -1,0 +1,6 @@
+{# @block content The breadcrumb items (typically Breadcrumb:Item components) #}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb {{ attributes.render('class') }}" {{ attributes }}>
+        {%- block content %}{% endblock -%}
+    </ol>
+</nav>

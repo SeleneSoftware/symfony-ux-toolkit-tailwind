@@ -1,0 +1,23 @@
+{# @prop size 'sm'|'lg' The input group size. Defaults to normal #}
+{# @block prepend Content to prepend (text, buttons, etc.) #}
+{# @block input The input field (typically Bootstrap:Input component) #}
+{# @block append Content to append (text, buttons, etc.) #}
+{%- props 
+    size = null
+-%}
+
+<div class="input-group{% if size %} input-group-{{ size }}{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
+    {% if block('prepend') is defined %}
+    <span class="input-group-text">
+        {%- block prepend %}{% endblock -%}
+    </span>
+    {% endif %}
+    
+    {%- block input %}{% endblock -%}
+    
+    {% if block('append') is defined %}
+    <span class="input-group-text">
+        {%- block append %}{% endblock -%}
+    </span>
+    {% endif %}
+</div>

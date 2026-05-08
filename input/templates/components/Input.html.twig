@@ -1,0 +1,32 @@
+{# @prop type 'text'|'email'|'password'|'number'|'tel'|'url'|'search'|'date'|'time'|'datetime-local'|'month'|'week'|'color'|'file' The input type. Defaults to `text` #}
+{# @prop size 'sm'|'lg' The input size. Defaults to normal #}
+{# @prop placeholder string Placeholder text #}
+{# @prop value string The input value #}
+{# @prop disabled boolean Whether the input is disabled #}
+{# @prop readonly boolean Whether the input is readonly #}
+{# @prop plaintext boolean Whether to use plaintext style #}
+{# @prop name string The input name attribute #}
+{# @prop id string The input id attribute #}
+{%- props 
+    type = 'text',
+    size = null,
+    placeholder = null,
+    value = null,
+    disabled = false,
+    readonly = false,
+    plaintext = false,
+    name = null,
+    id = null
+-%}
+
+<input
+    type="{{ type }}"
+    class="form-control{% if plaintext %}-plaintext{% endif %}{% if size %} form-control-{{ size }}{% endif %} {{ attributes.render('class') }}"
+    {% if name %}name="{{ name }}"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+    {% if value is not null %}value="{{ value }}"{% endif %}
+    {% if disabled %}disabled{% endif %}
+    {% if readonly %}readonly{% endif %}
+    {{ attributes }}
+/>

@@ -1,0 +1,36 @@
+{# @prop size 'sm'|'lg' The select size. Defaults to normal #}
+{# @prop disabled boolean Whether the select is disabled #}
+{# @prop multiple boolean Whether multiple options can be selected #}
+{# @prop name string The select name attribute #}
+{# @prop id string The select id attribute #}
+{# @prop options array Array of options with value and label keys #}
+{# @prop value string|array The selected value(s) #}
+{# @block content Override to provide custom options instead of using options prop #}
+{%- props 
+    size = null,
+    disabled = false,
+    multiple = false,
+    name = null,
+    id = null,
+    options = [],
+    value = null
+-%}
+
+<select
+    class="form-select{% if size %} form-select-{{ size }}{% endif %} {{ attributes.render('class') }}"
+    {% if name %}name="{{ name }}"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if disabled %}disabled{% endif %}
+    {% if multiple %}multiple{% endif %}
+    {{ attributes }}
+>
+    {% if block('content') is defined %}
+        {%- block content %}{% endblock -%}
+    {% else %}
+        {% for option in options %}
+            <option value="{{ option.value }}" {% if (multiple and value is iterable and option.value in value) or (not multiple and option.value == value) %}selected{% endif %}>
+                {{ option.label }}
+            </option>
+        {% endfor %}
+    {% endif %}
+</select>

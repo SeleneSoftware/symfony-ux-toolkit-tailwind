@@ -1,0 +1,15 @@
+{# @prop for string The id of the input this label is for #}
+{# @prop visuallyHidden boolean Whether to hide the label visually but keep it for screen readers #}
+{# @block content The label content #}
+{%- props 
+    for = null,
+    visuallyHidden = false
+-%}
+
+<label
+    {% if for %}for="{{ for }}"{% endif %}
+    class="{% if visuallyHidden %}visually-hidden{% endif %} form-label {{ attributes.render('class') }}"
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
+</label>
