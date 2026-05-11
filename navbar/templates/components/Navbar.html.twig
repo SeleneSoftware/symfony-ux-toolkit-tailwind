@@ -1,29 +1,34 @@
 {# @prop id string The navbar id (required for collapse target) #}
 {# @prop expand 'sm'|'md'|'lg'|'xl'|'xxl' The responsive breakpoint where the navbar expands #}
 {# @prop variant 'light'|'dark' The navbar color scheme #}
-{# @prop bg string The background color class #}
+{# @prop background string The background color class #}
 {# @prop placement 'fixed-top'|'fixed-bottom'|'sticky-top' The navbar placement #}
-{# @prop container boolean|'fluid' Whether to wrap content in a container #}
+{# @prop container boolean Whether to wrap content in a container #}
+{# @prop fluid boolean Whether the container is fluid #}
 {# @block brand The navbar brand (typically Navbar:Brand) #}
 {# @block toggler The navbar toggler button (typically Navbar:Toggler) #}
-{# @block navigation The collapsible navigation content (typically Navbar:Nav) #}
 {%- props
     id,
     expand = 'lg',
     variant = 'light',
-    bg = 'light',
+    background = 'light',
     placement = null,
-    container = true
+    container = true,
+    fluid = false
 -%}
 
-<nav class="navbar{% if expand %} navbar-expand-{{ expand }}{% endif %}{% if variant %} navbar-{{ variant }}{% endif %}{% if bg %} bg-{{ bg }}{% endif %}{% if placement %} {{ placement }}{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
-    {% if container %}<div class="container{% if container == 'fluid' %}-fluid{% endif %}">{% endif %}
-        {%- block brand %}{% endblock -%}
+<nav class="navbar{% if expand %} navbar-expand-{{ expand }}{% endif %}{% if variant %} navbar-{{ variant }}{% endif %}{% if background %} bg-{{ background }}{% endif %}{% if placement %} {{ placement }}{% endif %} {{ attributes.render('class') }}" id="{{ id }}" {{ attributes }}>
+    {% if container %}<div class="container{% if fluid %}-fluid{% endif %}">{% endif %}
 
-        {%- block toggler %}{% endblock -%}
+    {%- block brand %}{% endblock -%}
 
-        <div class="collapse navbar-collapse" id="{{ id }}">
-            {%- block content %}{% endblock -%}
-        </div>
+    {%- block toggler %}
+        <twig:Navbar:Toggler target="{{ id }}-collapse" />
+    {% endblock -%}
+
+    <div class="collapse navbar-collapse" id="{{ id }}-collapse">
+        {%- block content %}{% endblock -%}
+    </div>
+
     {% if container %}</div>{% endif %}
 </nav>
