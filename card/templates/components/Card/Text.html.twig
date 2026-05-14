@@ -1,0 +1,5 @@
+{# @block content The card text content #}
+
+<p class="card-text {{ attributes.render('class') }}" {{ attributes }}>
+    {%- block content %}{% endblock -%}
+</p>

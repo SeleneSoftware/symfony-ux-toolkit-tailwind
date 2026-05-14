@@ -1,18 +1,14 @@
 {# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark' The spinner color. Defaults to `primary` #}
 {# @prop type 'border'|'grow' The spinner type. Defaults to `border` #}
 {# @prop size 'sm' Small spinner size #}
-{# @prop visuallyHiddenText string Text for screen readers. Defaults to 'Loading...' #}
 {%- props 
     variant = 'primary',
     type = 'border',
-    size = null,
-    visuallyHiddenText = 'Loading...'
+    size = null
 -%}
 
 <div
     class="spinner-{{ type }} text-{{ variant }}{% if size == 'sm' %} spinner-{{ type }}-sm{% endif %} {{ attributes.render('class') }}"
     role="status"
     {{ attributes }}
->
-    <span class="visually-hidden">{{ visuallyHiddenText }}</span>
-</div>
+></div>

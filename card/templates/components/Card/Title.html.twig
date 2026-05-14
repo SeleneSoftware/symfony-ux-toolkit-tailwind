@@ -1,0 +1,9 @@
+{# @prop level number Level of the title. Defaults to 5 #}
+{# @block content The card title content #}
+{%- props
+    level = 5
+-%}
+
+<h{{ level }} class="card-title {{ attributes.render('class') }}" {{ attributes }}>
+    {%- block content %}{% endblock -%}
+</h{{ level }}>

@@ -1,11 +1,9 @@
 {# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark' The alert style variant. Defaults to `primary` #}
 {# @prop dismissible boolean Whether the alert can be dismissed. Defaults to false #}
-{# @prop heading string Optional heading for the alert #}
 {# @block content The alert message content #}
 {%- props 
     variant = 'primary',
-    dismissible = false,
-    heading = null
+    dismissible = false
 -%}
 
 <div
@@ -13,11 +11,6 @@
     role="alert"
     {{ attributes }}
 >
-    {% if heading %}
-    <h4 class="alert-heading">{{ heading }}</h4>
-    {% endif %}
     {%- block content %}{% endblock -%}
-    {% if dismissible %}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    {% endif %}
+    {% if dismissible %}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>{% endif %}
 </div>

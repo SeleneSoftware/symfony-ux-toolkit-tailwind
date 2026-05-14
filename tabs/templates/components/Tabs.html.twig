@@ -12,9 +12,7 @@
 -%}
 
 <div class="{% if vertical %}row{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
-    {% if vertical %}
-    <div class="col-3">
-    {% endif %}
+    {% if vertical %}<div class="col-3">{% endif %}
     
     <ul class="nav nav-{{ pills ? 'pills' : 'tabs' }}{% if vertical %} flex-column{% endif %}{% if justified %} nav-justified{% endif %}" 
         id="{{ id }}" 
@@ -24,16 +22,11 @@
         {%- block navigation %}{% endblock -%}
     </ul>
     
-    {% if vertical %}
-    </div>
-    <div class="col-9">
-    {% endif %}
+    {% if vertical %}</div><div class="col-9">{% endif %}
     
     <div class="tab-content" id="{{ id }}Content">
         {%- block content %}{% endblock -%}
     </div>
     
-    {% if vertical %}
-    </div>
-    {% endif %}
+    {% if vertical %}</div>{% endif %}
 </div>

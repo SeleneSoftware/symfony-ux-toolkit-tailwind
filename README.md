@@ -26,4 +26,6 @@ php bin/console ux:install button --kit https://github.com/sbolch/symfony-ux-too
 </twig:Button>
 ```
 
+For component usage examples, see [test.html.twig](test.html.twig).
+
 > Note: The package is in progress, Bootstrap components might still be missing and bugs might happen.

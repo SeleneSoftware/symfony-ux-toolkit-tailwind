@@ -1,0 +1,7 @@
+{
+  "name": "sbolch/symfony-ux-toolkit-bootstrap",
+  "type": "library",
+  "require-dev": {
+    "symfony/ux-toolkit": "^3"
+  }
+}

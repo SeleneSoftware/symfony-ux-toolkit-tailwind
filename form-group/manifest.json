@@ -5,5 +5,8 @@
     "description": "Bootstrap form group component for wrapping form controls with labels and help text.",
     "copy-files": {
         "templates/": "templates/"
+    },
+    "dependencies": {
+        "recipe": ["label"]
     }
 }

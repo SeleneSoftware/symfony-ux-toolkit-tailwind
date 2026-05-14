@@ -6,7 +6,7 @@
 {# @prop dark boolean Whether to use dark table #}
 {# @prop responsive boolean|string Enable responsive table (can be boolean or breakpoint: sm, md, lg, xl, xxl) #}
 {# @block header The table header (typically tr > th elements) #}
-{# @block body The table body (typically tr > td elements) #}
+{# @block content The table body (typically tr > td elements) #}
 {# @block footer The table footer (optional) #}
 {%- props 
     striped = false,
@@ -28,26 +28,22 @@
     dark ? 'table-dark'
 ]|filter(v => v)|join(' ') %}
 
-{% if responsive %}
-<div class="table-responsive{% if responsive is not same as(true) %}-{{ responsive }}{% endif %}">
-{% endif %}
-
+{% if responsive %}<div class="table-responsive{% if responsive is not same as(true) %}-{{ responsive }}{% endif %}">{% endif %}
 <table class="{{ tableClass }} {{ attributes.render('class') }}" {{ attributes }}>
     {% if block('header') is defined %}
-    <thead>
-        {%- block header %}{% endblock -%}
-    </thead>
+        <thead>
+            {%- block header %}{% endblock -%}
+        </thead>
     {% endif %}
+    
     <tbody>
-        {%- block body %}{% endblock -%}
+        {%- block content %}{% endblock -%}
     </tbody>
+    
     {% if block('footer') is defined %}
-    <tfoot>
-        {%- block footer %}{% endblock -%}
-    </tfoot>
+        <tfoot>
+            {%- block footer %}{% endblock -%}
+        </tfoot>
     {% endif %}
 </table>
-
-{% if responsive %}
-</div>
-{% endif %}
+{% if responsive %}</div>{% endif %}

@@ -24,10 +24,6 @@
         value="{{ value }}"
         {% if checked %}checked{% endif %}
         {% if disabled %}disabled{% endif %}
-    />
-    {% if label %}
-    <label class="form-check-label" {% if id %}for="{{ id }}"{% endif %}>
-        {{ label }}
-    </label>
-    {% endif %}
+    >
+    {% if label %}<label class="form-check-label" {% if id %}for="{{ id }}"{% endif %}>{{ label }}</label>{% endif %}
 </div>
