@@ -1,13 +1,7 @@
-{# @prop href string URL for the breadcrumb link #}
-{# @prop active boolean Whether this is the current/active item #}
-{# @block content The breadcrumb item content #}
-{%- props 
-    href = null,
-    active = false
--%}
+{# @prop current boolean Whether this is the current item #}
+{# @block content The breadcrumb item content, typically a `Breadcrumb:Link` or `Breadcrumb:Page` #}
+{%- props current = false -%}
 
-<li class="breadcrumb-item{% if active %} active{% endif %}" {% if active %}aria-current="page"{% endif %}>
-    {% if not active and href %}<a href="{{ href }}">{% endif %}
+<li class="breadcrumb-item{% if current %} active{% endif %}" {% if current %}aria-current="page"{% endif %}>
     {%- block content %}{% endblock -%}
-    {% if not active and href %}</a>{% endif %}
 </li>

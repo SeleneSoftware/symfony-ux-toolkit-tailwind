@@ -1,0 +1,10 @@
+{# @prop open boolean Whether the content is initially shown. Defaults to false #}
+{# @block content The collapsible content #}
+{%- props open = false -%}
+
+<div
+    class="collapse{% if open %} show{% endif %} {{ attributes.render('class') }}"
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
+</div>

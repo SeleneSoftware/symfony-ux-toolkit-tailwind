@@ -13,86 +13,64 @@
 
         <section class="mb-5">
             <h2 class="mb-3">Alert</h2>
-            <twig:Alert variant="success" dismissible="true">
-                This is a success alert!
-            </twig:Alert>
-            <twig:Alert variant="danger">
-                <twig:Alert:Heading>Error</twig:Alert:Heading>
-                Something went wrong.
-            </twig:Alert>
+            {{ include('alert/examples/Demo.html.twig') }}
+            {{ include('alert/examples/Action.html.twig') }}
+            {{ include('alert/examples/Dismissing.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Badge</h2>
-            <twig:Badge variant="danger">New</twig:Badge>
-            <twig:Badge variant="primary" pill="true">99+</twig:Badge>
+            {{ include('badge/examples/Demo.html.twig') }}
+            {{ include('badge/examples/Pill.html.twig') }}
+            {{ include('badge/examples/As link.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Button</h2>
-            <twig:Button variant="primary">Primary</twig:Button>
-            <twig:Button variant="secondary">Secondary</twig:Button>
-            <twig:Button variant="success" outline="true">Outline</twig:Button>
-            <twig:Button variant="danger" size="lg">Large Danger</twig:Button>
-            <twig:Button variant="link" href="https://symfony.com">Link Button</twig:Button>
+            {{ include('button/examples/Demo.html.twig') }}
+            {{ include('button/examples/Outline.html.twig') }}
+            {{ include('button/examples/Size.html.twig') }}
+            {{ include('button/examples/Disabled.html.twig') }}
+            {{ include('button/examples/As link.html.twig') }}
+            {{ include('button/examples/Icon.html.twig') }}
+            {{ include('button/examples/Loading.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Button Group</h2>
-            <twig:ButtonGroup>
-                <twig:Button variant="outline-primary">Left</twig:Button>
-                <twig:Button variant="outline-primary">Middle</twig:Button>
-                <twig:Button variant="outline-primary">Right</twig:Button>
-            </twig:ButtonGroup>
+            {{ include('button-group/examples/Demo.html.twig') }}
+            {{ include('button-group/examples/Size.html.twig') }}
+            {{ include('button-group/examples/Orientation.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Breadcrumb</h2>
-            <twig:Breadcrumb>
-                <twig:Breadcrumb:Item href="/">Home</twig:Breadcrumb:Item>
-                <twig:Breadcrumb:Item href="/library">Library</twig:Breadcrumb:Item>
-                <twig:Breadcrumb:Item active="true">Data</twig:Breadcrumb:Item>
-            </twig:Breadcrumb>
+            {{ include('breadcrumb/examples/Demo.html.twig') }}
+            {{ include('breadcrumb/examples/Custom Separator.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Card</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <twig:Card>
-                        <twig:block name="top">
-                            <twig:Card:Image src="https://placehold.co/600x200" alt="Placeholder" />
-                        </twig:block>
-                        <twig:block name="header">
-                            <twig:Card:Title>Card Title</twig:Card:Title>
-                        </twig:block>
-                        <twig:Card:Body>
-                            <twig:Card:Text>Some quick example text to build on the card title.</twig:Card:Text>
-                        </twig:Card:Body>
-                        <twig:block name="footer">
-                            Last updated 3 mins ago
-                        </twig:block>
-                    </twig:Card>
+                    {{ include('card/examples/Demo.html.twig') }}
+                </div>
+                <div class="col-md-6">
+                    {{ include('card/examples/With image.html.twig') }}
                 </div>
             </div>
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Checkbox</h2>
-            <twig:Checkbox label="Default checkbox" />
-            <twig:Checkbox label="Checked checkbox" checked="true" />
-            <twig:Checkbox label="Inline checkbox" inline="true" />
-            <twig:Checkbox label="Disabled checkbox" disabled="true" />
+            {{ include('checkbox/examples/Demo.html.twig') }}
+            {{ include('checkbox/examples/Inline.html.twig') }}
+            {{ include('checkbox/examples/Disabled.html.twig') }}
         </section>
 
         <section class="mb-5">
-            <h2 class="mb-3">Collapse</h2>
-            <twig:Button data-bs-toggle="collapse" data-bs-target="#demoCollapse">
-                Toggle Collapse
-            </twig:Button>
-            <twig:Collapse id="demoCollapse" class="mt-2 p-3 border">
-                This content can be collapsed!
-            </twig:Collapse>
+            <h2 class="mb-3">Collapsible</h2>
+            {{ include('collapsible/examples/Demo.html.twig') }}
         </section>
 
         <section class="mb-5">

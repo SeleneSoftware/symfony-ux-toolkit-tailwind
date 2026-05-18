@@ -1,0 +1,10 @@
+{# @prop inline boolean Whether the checkbox container is inline. Defaults to false #}
+{# @block content The checkbox, typically `Checkbox` #}
+{%- props inline = false -%}
+
+<div
+    class="form-check{% if inline %} form-check-inline{% endif%} {{ attributes.render('class') }}"
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
+</div>

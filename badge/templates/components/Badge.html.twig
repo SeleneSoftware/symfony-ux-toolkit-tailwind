@@ -1,11 +1,13 @@
-{# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark' The badge style variant. Defaults to `primary` #}
-{# @prop pill boolean Whether to use pill style. Defaults to false #}
-{# @block content The badge content #}
-{%- props 
-    variant = 'primary',
-    pill = false
--%}
+{# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark' The visual style variant. Defaults to `primary` #}
+{# @prop as 'span' The HTML tag to render. Defaults to `span` #}
+{# @prop shape 'rounded'|'pill' The badge shape. Defaults to `rounded` #}
+{# @block content The badge label or content #}
+{%- props variant = 'primary', as = 'span', shape = 'rounded' -%}
 
-<span class="badge bg-{{ variant }}{% if pill %} rounded-pill{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
+
+<{{ as }}
+    class="badge text-bg-{{ variant }}{% if shape == 'pill' %} rounded-pill{% endif %} {{ attributes.render('class') }}"
+    {{ attributes }}
+>
     {%- block content %}{% endblock -%}
-</span>
+</{{ as }}>

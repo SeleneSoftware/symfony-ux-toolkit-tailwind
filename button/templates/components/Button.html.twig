@@ -1,32 +1,18 @@
 {# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark'|'link'|'outline-primary'|'outline-secondary'|'outline-success'|'outline-danger'|'outline-warning'|'outline-info'|'outline-light'|'outline-dark' The button style variant. Defaults to `primary` #}
 {# @prop size 'sm'|'lg' The button size. Defaults to normal size #}
-{# @prop outline boolean Use outline style. Defaults to false #}
+{# @prop as 'button' The HTML tag to render. Defaults to `button` #}
 {# @prop disabled boolean Whether the button is disabled. Defaults to false #}
-{# @prop type 'button'|'submit'|'reset' The button type. Defaults to `button` #}
-{# @prop href string URL if rendering as link. If set, renders as <a> instead of <button> #}
 {# @block content The button label and/or icon #}
-{%- props
-    variant = 'primary',
-    size = null,
-    outline = false,
-    disabled = false,
-    type = 'button',
-    href = null
--%}
-{%- set baseClass = 'btn' -%}
-{%- set variantClass = outline ? 'btn-outline-' ~ variant : 'btn-' ~ variant -%}
-{%- set sizeClass = size ? 'btn-' ~ size : '' -%}
+{%- props variant = 'primary', size = null, as = 'button', disabled = false -%}
 
-<{{ href ? 'a' : 'button' }}
-    class="{{ [baseClass, variantClass, sizeClass, attributes.render('class')]|filter(v => v)|join(' ') }}"
-{% if href %}
-    href="{{ href }}"
-    {% if disabled %}aria-disabled="true" class="disabled"{% endif %}
-{% else %}
-    type="{{ type }}"
-    {% if disabled %}disabled{% endif %}
-{% endif %}
+{%- set sizeClass = size ? 'btn-' ~ size : '' -%}
+{%- set disabledClass = as == 'a' and disabled ? 'disabled' : '' -%}
+
+<{{ as }}
+    class="btn {{ 'btn-' ~ variant }} {{ [sizeClass, disabledClass, attributes.render('class')]|filter(v => v)|join(' ') }}"
+    {% if as == 'a' %}role="button"{% endif %}
+    {% if as == 'a' and disabled %}aria-disabled="true"{% elseif disabled %}disabled{% endif %}
     {{ attributes }}
 >
     {%- block content %}{% endblock -%}
-</{{ href ? 'a' : 'button' }}>
+</{{ as }}>

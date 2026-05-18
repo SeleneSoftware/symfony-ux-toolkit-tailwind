@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use Symfony\UX\Icons\UXIconsBundle;
 use Symfony\UX\TwigComponent\TwigComponentBundle;
 
 class TestKernel extends Kernel
@@ -24,6 +25,7 @@ class TestKernel extends Kernel
             new FrameworkBundle(),
             new TwigBundle(),
             new TwigComponentBundle(),
+            new UXIconsBundle(),
         ];
     }
 
@@ -49,6 +51,7 @@ class TestKernel extends Kernel
             'secret' => 'test',
             'test' => true,
             'router' => ['utf8' => true],
+            'http_client' => [],
         ]);
 
         $twigPaths = [__DIR__];

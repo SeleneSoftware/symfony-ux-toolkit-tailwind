@@ -1,10 +1,4 @@
-{# @prop src string The image source URL #}
 {# @prop position 'top'|'bottom' The image position. Defaults to 'top' #}
-{# @prop alt string The image alt text #}
-{%- props
-    src,
-    position = 'top',
-    alt = ''
--%}
+{%- props position = 'top' -%}
 
-<img src="{{ src }}" class="card-img-{{ position }} {{ attributes.render('class') }}" alt="{{ alt }}" {{ attributes }}>
+<img class="card-img-{{ position }} {{ attributes.render('class') }}" {{ attributes }}>

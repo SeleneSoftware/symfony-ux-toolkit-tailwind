@@ -1,9 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
     "type": "component",
-    "name": "Collapse",
+    "name": "Collapsible",
     "description": "Bootstrap collapse component for toggling content visibility.",
     "copy-files": {
         "templates/": "templates/"
+    },
+    "dependencies": {
+        "recipe": ["button"]
     }
 }

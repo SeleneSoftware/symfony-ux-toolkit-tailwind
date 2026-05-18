@@ -1,19 +1,5 @@
-{# @block header The card header content #}
-{# @block content The card body content #}
-{# @block footer The card footer content #}
+{# @block content The card content, typically includes `Card:Content` with `Card:Header`, and/or `Card:Footer` #}
 
 <div class="card {{ attributes.render('class') }}" {{ attributes }}>
-    {%- block top %}{% endblock -%}
-    
-    {% if block('header') is defined %}
-        <div class="card-header">{%- block header %}{% endblock -%}</div>
-    {% endif %}
-    
     {%- block content %}{% endblock -%}
-
-    {% if block('footer') is defined %}
-        <div class="card-footer">{%- block footer %}{% endblock -%}</div>
-    {% endif %}
-
-    {%- block bottom %}{% endblock -%}
 </div>
