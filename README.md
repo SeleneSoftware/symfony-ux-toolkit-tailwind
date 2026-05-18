@@ -21,7 +21,7 @@ php bin/console ux:install button --kit https://github.com/sbolch/symfony-ux-too
 
 ```twig
 {# Freshly installed components are ready to use! #}
-<twig:Button variant="primary" outline="true" href="https://symfony.com" target="_blank">
+<twig:Button as="a" variant="outline-primary" href="https://symfony.com" target="_blank">
     Visit symfony.com
 </twig:Button>
 ```
