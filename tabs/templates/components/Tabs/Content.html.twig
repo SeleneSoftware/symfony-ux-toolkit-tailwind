@@ -1,0 +1,14 @@
+{# @prop value string Unique suffix identifier for generating Tabs internal IDs #}
+{# @block content The tab pane content #}
+{%- props value -%}
+
+<div
+    class="tab-pane fade{% if value == _defaultValue %} show active{% endif %} {{ attributes.render('class') }}"
+    id="{{ value }}"
+    role="tabpanel"
+    aria-labelledby="{{ value }}-tab"
+    tabindex="0"
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
+</div>

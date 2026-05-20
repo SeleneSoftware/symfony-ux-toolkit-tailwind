@@ -1,29 +1,9 @@
 {# @prop size 'sm'|'lg' The textarea size. Defaults to normal #}
-{# @prop placeholder string Placeholder text #}
-{# @prop value string The textarea value #}
-{# @prop disabled boolean Whether the textarea is disabled #}
-{# @prop readonly boolean Whether the textarea is readonly #}
-{# @prop rows number Number of rows #}
-{# @prop name string The textarea name attribute #}
-{# @prop id string The textarea id attribute #}
-{%- props 
-    size = null,
-    placeholder = null,
-    value = null,
-    disabled = false,
-    readonly = false,
-    rows = 3,
-    name = null,
-    id = null
--%}
+{%- props size = null -%}
 
 <textarea
     class="form-control{% if size %} form-control-{{ size }}{% endif %} {{ attributes.render('class') }}"
-    rows="{{ rows }}"
-    {% if name %}name="{{ name }}"{% endif %}
-    {% if id %}id="{{ id }}"{% endif %}
-    {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
-    {% if disabled %}disabled{% endif %}
-    {% if readonly %}readonly{% endif %}
     {{ attributes }}
->{% if value %}{{ value }}{% endif %}</textarea>
+>
+    {%- block content %}{% endblock -%}
+</textarea>

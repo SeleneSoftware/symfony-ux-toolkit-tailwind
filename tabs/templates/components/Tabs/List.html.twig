@@ -1,0 +1,14 @@
+{# @prop variant 'tabs'|'pills'|'underline' The visual style variant. Defaults to `tabs` #}
+{# @prop fill boolean Whether tabs should fill the available space. Defaults to false #}
+{# @prop justify boolean Whether tabs should be justified. Defaults to false #}
+{# @block content The default block #}
+{%- props variant = 'tabs', fill = false, justify = false -%}
+
+<ul
+	class="nav nav-{{ variant }}{% if justify %} nav-justified{% endif %} {% if fill %} nav-fill{% endif %} {{ attributes.render('class') }}"
+    role="tablist"
+    aria-orientation="{% if vertical %}vertical{% else %}horizontal{% endif %}"
+	{{ attributes }}
+>
+	{%- block content %}{% endblock -%}
+</ul>
