@@ -1,8 +1,6 @@
-{# @prop size 'sm'|'lg' The input group size. Defaults to normal #}
-{# @block content The input field(s) (typically Input component) and other elements (typically InputGroup:Text components #}
-{%- props 
-    size = null
--%}
+{# @prop size 'sm'|'lg' The input group size. Defaults to normal size #}
+{# @block content The input field group elements, typically `Input`, `InputGroup:Text`, and/or `Button` #}
+{%- props size = null -%}
 
 <div class="input-group{% if size %} input-group-{{ size }}{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
     {%- block content %}{% endblock -%}

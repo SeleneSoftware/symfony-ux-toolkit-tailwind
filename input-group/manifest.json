@@ -1,9 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
     "type": "component",
-    "name": "InputGroup",
-    "description": "Bootstrap input group component for inputs with addons.",
+    "name": "Input Group",
+    "description": "Bootstrap input group component to easily extend form controls by adding text, buttons, or button groups.",
     "copy-files": {
         "templates/": "templates/"
+    },
+    "dependencies": {
+        "recipe": ["input"]
     }
 }

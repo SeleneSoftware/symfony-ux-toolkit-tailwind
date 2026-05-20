@@ -1,0 +1,10 @@
+{# @prop as 'h5' The HTML tag to render. Defaults to `h5` #}
+{# @block content The title text of the modal #}
+{%- props as = 'h5' -%}
+
+<{{ as }}
+	id="{{ _modal_id }}-title"
+	class="modal-title {{ attributes.render('class') }}"
+	{{ attributes }}
+>
+</{{ as }}>

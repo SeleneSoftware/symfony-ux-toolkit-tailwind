@@ -1,0 +1,10 @@
+{# @prop inline boolean Whether the radio container is inline. Defaults to false #}
+{# @block content The radio input, typically `Radio` #}
+{%- props inline = false -%}
+
+<div
+    class="form-check{% if inline %} form-check-inline{% endif%} {{ attributes.render('class') }}"
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
+</div>

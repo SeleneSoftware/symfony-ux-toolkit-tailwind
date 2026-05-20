@@ -62,10 +62,13 @@
         </section>
 
         <section class="mb-5">
-            <h2 class="mb-3">Checkbox</h2>
+            <h2 class="mb-3">Checkbox & Radio</h2>
             {{ include('checkbox/examples/Demo.html.twig') }}
             {{ include('checkbox/examples/Inline.html.twig') }}
             {{ include('checkbox/examples/Disabled.html.twig') }}
+            {{ include('radio/examples/Demo.html.twig') }}
+            {{ include('radio/examples/Inline.html.twig') }}
+            {{ include('radio/examples/Disabled.html.twig') }}
         </section>
 
         <section class="mb-5">
@@ -74,115 +77,67 @@
         </section>
 
         <section class="mb-5">
-            <h2 class="mb-3">Form Group + Input</h2>
-            
-            <twig:InputGroup class="mb-3">
-                <twig:Input placeholder="Username" />
-                <twig:InputGroup:Text>@</twig:InputGroup:Text>
-                <twig:Input placeholder="Domain" />
-                <twig:InputGroup:Text>.com</twig:InputGroup:Text>
-            </twig:InputGroup>
-            
-            <twig:FormGroup label="Email address" for="email" required="true" help="We'll never share your email.">
-                <twig:Input type="email" id="email" placeholder="Enter email" />
-            </twig:FormGroup>
-
-            <twig:FormGroup label="Password" for="password">
-                <twig:Input type="password" id="password" placeholder="Password" />
-            </twig:FormGroup>
-
-            <twig:FormGroup label="Comments" for="comments">
-                <twig:Textarea id="comments" rows="3" placeholder="Your comments..." />
-            </twig:FormGroup>
-
-            <twig:FormGroup label="Fruit" for="fruit">
-                <twig:Select id="fruit">
-                    <option>apple</option>
-                    <option>pear</option>
-                    <option>grape</option>
-                </twig:Select>
-            </twig:FormGroup>
-            
-            <twig:FormGroup label="Fruit (with array)" for="fruit2">
-                <twig:Select id="fruit2" :options="{
-                    apple: 'apple',
-                    pear: 'pear',
-                    grape: 'grape'
-                }" />
-            </twig:FormGroup>
+            <h2 class="mb-3">Input, Input Group, Label</h2>
+            {{ include('input/examples/Demo.html.twig') }}
+            {{ include('input/examples/Size.html.twig') }}
+            {{ include('input/examples/Disabled.html.twig') }}
+            {{ include('input/examples/File.html.twig') }}
+            {{ include('input/examples/Plain text.html.twig') }}
+            {{ include('input-group/examples/Demo.html.twig') }}
+            {{ include('input-group/examples/Size.html.twig') }}
+            {{ include('label/examples/Demo.html.twig') }}
+            {{ include('label/examples/Floating.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Modal</h2>
-            <twig:Button data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Launch Demo Modal
-            </twig:Button>
-            <twig:Modal id="exampleModal">
-                <twig:block name="header">
-                    <h5 class="modal-title">Modal Demo</h5>
-                </twig:block>
-                <p>This is a modal body with some example content.</p>
-                <twig:block name="footer">
-                    <twig:Button variant="secondary" data-bs-dismiss="modal">
-                        Close
-                    </twig:Button>
-                </twig:block>
-            </twig:Modal>
-        </section>
-
-        <section class="mb-5">
-            <h2 class="mb-3">Navbar</h2>
-            <twig:Navbar id="mainNav" variant="dark" background="dark">
-                <twig:block name="brand">
-                    <twig:Navbar:Brand href="#">My App</twig:Navbar:Brand>
-                </twig:block>
-                <twig:Navbar:Nav>
-                    <twig:Navbar:Item href="#" active="true">Home</twig:Navbar:Item>
-                    <twig:Navbar:Item href="#">Features</twig:Navbar:Item>
-                    <twig:Navbar:Item href="#">Pricing</twig:Navbar:Item>
-                </twig:Navbar:Nav>
-            </twig:Navbar>
+            {{ include('modal/examples/Demo.html.twig') }}
+            {{ include('modal/examples/Static.html.twig') }}
+            {{ include('modal/examples/Size.html.twig') }}
+            {{ include('modal/examples/Centered.html.twig') }}
+            {{ include('modal/examples/Scrollable.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Pagination</h2>
-            <twig:Pagination>
-                <twig:Pagination:Item page="Previous" href="#" />
-                <twig:Pagination:Item page="1" href="#" />
-                <twig:Pagination:Item page="2" href="#" active="true" />
-                <twig:Pagination:Item page="3" href="#" />
-                <twig:Pagination:Item page="Next" href="#" />
-            </twig:Pagination>
+            {{ include('pagination/examples/Demo.html.twig') }}
+            {{ include('pagination/examples/Disabled.html.twig') }}
+            {{ include('pagination/examples/Icon.html.twig') }}
+            {{ include('pagination/examples/Size.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Progress</h2>
-            <twig:Progress value="75" />
-            <twig:Progress value="50" variant="success" striped="true" animated="true" class="mt-2" />
+            {{ include('progress/examples/Demo.html.twig') }}
+            {{ include('progress/examples/Striped.html.twig') }}
+            {{ include('progress/examples/Animated.html.twig') }}
+            {{ include('progress/examples/With label.html.twig') }}
+        </section>
+        
+        <section class="mb-5">
+            <h2 class="mb-3">Select</h2>
+            {{ include('select/examples/Demo.html.twig') }}
+            {{ include('select/examples/Multiple.html.twig') }}
+            {{ include('select/examples/Disabled.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Spinner</h2>
-            <twig:Spinner /> Loading...
-            <twig:Spinner size="sm" class="ms-3" /> Small
+            {{ include('spinner/examples/Demo.html.twig') }}
+            {{ include('spinner/examples/Color.html.twig') }}
+            {{ include('spinner/examples/Size.html.twig') }}
         </section>
 
         <section class="mb-5">
             <h2 class="mb-3">Table</h2>
-            <twig:Table striped="true" hover="true">
-                <twig:block name="header">
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                    </tr>
-                </twig:block>
-                <tr><td>1</td><td>John</td><td>john@example.com</td></tr>
-                <tr><td>2</td><td>Jane</td><td>jane@example.com</td></tr>
-                <twig:block name="footer">
-                    <tr><td colspan="3">Total: 2</td></tr>
-                </twig:block>
-            </twig:Table>
+            {{ include('table/examples/Demo.html.twig') }}
+            {{ include('table/examples/Striped.html.twig') }}
+            {{ include('table/examples/Bordered.html.twig') }}
+            {{ include('table/examples/Hoverable.html.twig') }}
+            {{ include('table/examples/Small.html.twig') }}
+            {{ include('table/examples/Dark.html.twig') }}
+            {{ include('table/examples/Responsive.html.twig') }}
+            {{ include('table/examples/Without border.html.twig') }}
         </section>
 
         <section class="mb-5">

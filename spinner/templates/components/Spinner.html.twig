@@ -1,14 +1,10 @@
 {# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark' The spinner color. Defaults to `primary` #}
 {# @prop type 'border'|'grow' The spinner type. Defaults to `border` #}
-{# @prop size 'sm' Small spinner size #}
-{%- props 
-    variant = 'primary',
-    type = 'border',
-    size = null
--%}
+{# @prop small boolean Small spinner size. Defaults to `false` #}
+{%- props variant = 'primary', type = 'border', small = false -%}
 
 <div
-    class="spinner-{{ type }} text-{{ variant }}{% if size == 'sm' %} spinner-{{ type }}-sm{% endif %} {{ attributes.render('class') }}"
+    class="spinner-{{ type }} text-{{ variant }}{% if small %} spinner-{{ type }}-sm{% endif %} {{ attributes.render('class') }}"
     role="status"
     {{ attributes }}
 ></div>

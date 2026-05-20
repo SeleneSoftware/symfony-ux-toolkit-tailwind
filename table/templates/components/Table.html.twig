@@ -5,9 +5,7 @@
 {# @prop small boolean Whether to use small table #}
 {# @prop dark boolean Whether to use dark table #}
 {# @prop responsive boolean|string Enable responsive table (can be boolean or breakpoint: sm, md, lg, xl, xxl) #}
-{# @block header The table header (typically tr > th elements) #}
-{# @block content The table body (typically tr > td elements) #}
-{# @block footer The table footer (optional) #}
+{# @block content The table structure, typically includes `Table:Header`, `Table:Body`, and optionally `Table:Footer` #}
 {%- props 
     striped = false,
     bordered = false,
@@ -19,7 +17,6 @@
 -%}
 
 {% set tableClass = [
-    'table',
     striped ? 'table-striped',
     bordered ? 'table-bordered',
     borderless ? 'table-borderless',
@@ -29,21 +26,10 @@
 ]|filter(v => v)|join(' ') %}
 
 {% if responsive %}<div class="table-responsive{% if responsive is not same as(true) %}-{{ responsive }}{% endif %}">{% endif %}
-<table class="{{ tableClass }} {{ attributes.render('class') }}" {{ attributes }}>
-    {% if block('header') is defined %}
-        <thead>
-            {%- block header %}{% endblock -%}
-        </thead>
-    {% endif %}
-    
-    <tbody>
-        {%- block content %}{% endblock -%}
-    </tbody>
-    
-    {% if block('footer') is defined %}
-        <tfoot>
-            {%- block footer %}{% endblock -%}
-        </tfoot>
-    {% endif %}
+<table
+    class="table {{ tableClass }} {{ attributes.render('class') }}"
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
 </table>
 {% if responsive %}</div>{% endif %}

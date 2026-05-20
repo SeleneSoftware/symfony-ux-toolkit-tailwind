@@ -1,9 +1,0 @@
-{# @prop target string The collapse target id #}
-{# @block content The toggler content (defaults to navbar-toggler-icon) #}
-{%- props
-    target = null
--%}
-
-<button class="navbar-toggler {{ attributes.render('class') }}" type="button" data-bs-toggle="collapse" data-bs-target="{{ target ? '#' ~ target : '#' }}" aria-controls="{{ target }}" aria-expanded="false" aria-label="Toggle navigation" {{ attributes }}>
-    {%- block content %}<span class="navbar-toggler-icon"></span>{% endblock -%}
-</button>

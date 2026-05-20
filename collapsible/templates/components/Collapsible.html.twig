@@ -1,4 +1,8 @@
+{# @props id The ID of the collapsible #}
 {# @block content The collapsible content, typically a `Collepsible:Trigger` and a `Collapsible:Content` #}
+{%- props id -%}
+
+{%- set _collapsible_id = id -%}
 
 <div {{ attributes }}>
     {%- block content %}{% endblock -%}

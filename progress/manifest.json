@@ -2,7 +2,7 @@
     "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
     "type": "component",
     "name": "Progress",
-    "description": "Bootstrap progress bar component.",
+    "description": "Bootstrap progress bar component to show the completion status of a task or operation.",
     "copy-files": {
         "templates/": "templates/"
     }

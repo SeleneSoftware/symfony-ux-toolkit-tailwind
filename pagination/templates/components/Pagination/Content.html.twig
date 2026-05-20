@@ -1,0 +1,10 @@
+{# @prop size 'sm'|'lg' The pagination size. Defaults to normal size #}
+{# @block content The pagination items, typically multiple `Pagination:Item` components #}
+{%- props size = null -%}
+
+<ul
+	class="pagination{% if size %} pagination-{{ size }}{% endif %} {{ attributes.render('class') }}"
+	{{ attributes }}
+>
+	{%- block content %}{% endblock -%}
+</ul>

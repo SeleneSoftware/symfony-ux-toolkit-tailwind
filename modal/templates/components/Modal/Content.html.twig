@@ -1,0 +1,25 @@
+{# @prop open boolean Whether the modal is open on initial render. Defaults to `false` #}
+{# @prop size 'sm'|'lg'|'xl' The modal size #}
+{# @prop centered boolean Whether to vertically center the modal #}
+{# @prop scrollable boolean Whether content is scrollable #}
+{# @prop backdrop 'dynamic'|'static' To prevent the modal from closing when clicking outside. Defaults to `dynamic` #}
+{# @block content The modal content, typically includes `Modal:Header`, `Modal:Body`, and optionally `Modal:Footer` #}
+{%- props open = false, size = null, centered = false, scrollable = false, backdrop = 'dynamic' -%}
+
+<div
+	id="{{ _modal_id }}"
+	class="modal fade {{ open ? 'show' : '' }}"
+	tabindex="-1"
+	aria-hidden="true"
+	aria-labelledby="{{ _modal_id }}-title"
+	{% if backdrop == 'static' %}data-bs-backdrop="static" data-bs-keyboard="false"{% endif %}
+>
+	<div
+		class="modal-dialog{% if size %} modal-{{ size }}{% endif %}{% if centered %} modal-dialog-centered{% endif %}{% if scrollable %} modal-dialog-scrollable{% endif %} {{ attributes.render('class') }}"
+		{{ attributes }}
+	>
+		<div class="modal-content">
+			{%- block content %}{% endblock -%}
+		</div>
+	</div>
+</div>

@@ -1,6 +1,4 @@
-{# @prop target string The ID of the collapsible element to toggle #}
 {# @block content The label of the collapsible trigger #}
-{%- props target -%}
 
 {%- set trigger_content -%}
     {%- block content %}{% endblock -%}
@@ -8,8 +6,8 @@
 
 <twig:Button
     data-bs-toggle="collapse"
-    data-bs-target="#{{ target }}"
-    aria-controls="{{ target }}"
+    data-bs-target="#{{ _collapsible_id }}"
+    aria-controls="{{ _collapsible_id }}"
     {{ ...attributes }}
 >
     {{- trigger_content -}}

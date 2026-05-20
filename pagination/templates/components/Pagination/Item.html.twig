@@ -1,23 +1,11 @@
-{# @prop page string|number The page number or '...' for ellipsis #}
-{# @prop href string URL for the page link #}
 {# @prop active boolean Whether this is the current page #}
 {# @prop disabled boolean Whether this item is disabled #}
-{%- props 
-    page = null,
-    href = null,
-    active = false,
-    disabled = false
--%}
+{# @block content The pagination item content, typically a `Pagination:Link` #}
+{%- props active = false, disabled = false -%}
 
-<li class="page-item{% if active %} active{% endif %}{% if disabled %} disabled{% endif %}">
-    {% if page == '...' %}
-        <span class="page-link">{{ page }}</span>
-    {% else %}
-        <a class="page-link" 
-           href="{{ href ?: '#' }}" 
-           {% if active %}aria-current="page"{% endif %}
-        >
-            {%- block content %}{{ page }}{% endblock -%}
-        </a>
-    {% endif %}
+<li
+    class="page-item{% if active %} active{% endif %}{% if disabled %} disabled{% endif %} {{ attributes.render('class') }}"
+    {{ attributes }}
+>
+    {%- block content %}{% endblock -%}
 </li>

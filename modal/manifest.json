@@ -2,8 +2,11 @@
     "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
     "type": "component",
     "name": "Modal",
-    "description": "Bootstrap modal dialog component.",
+    "description": "Bootstrap modal dialog component for lightboxes, user notifications, or completely custom content.",
     "copy-files": {
         "templates/": "templates/"
+    },
+    "dependencies": {
+        "recipe": ["button"]
     }
 }
