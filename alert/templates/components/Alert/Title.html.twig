@@ -1,7 +1,7 @@
-{# @prop level number Level of the heading. Defaults to 4 #}
+{# @prop as 'h4' The HTML tag to render. Defaults to `h4` #}
 {# @block content The title text of the alert #}
-{%- props level = 4 -%}
+{%- props as = 'h4' -%}
 
-<h{{ level }} class="alert-heading {{ attributes.render('class') }}" {{ attributes }}>
+<{{ as }} class="alert-heading {{ attributes.render('class') }}" {{ attributes }}>
 	{%- block content %}{% endblock -%}
-</h{{ level }}>
+</{{ as }}>

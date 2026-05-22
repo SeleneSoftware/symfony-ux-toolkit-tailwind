@@ -3,8 +3,31 @@
 {# @prop small boolean Small spinner size. Defaults to `false` #}
 {%- props variant = 'primary', type = 'border', small = false -%}
 
+{%- set style = html_cva(
+	base: '',
+	variants: {
+		type: {
+			border: 'spinner-border',
+			grow: 'spinner-grow',
+		},
+		variant: {
+			primary: 'text-primary',
+			secondary: 'text-secondary',
+			success: 'text-success',
+			danger: 'text-danger',
+			warning: 'text-warning',
+			info: 'text-info',
+			light: 'text-light',
+			dark: 'text-dark',
+		},
+		small: {
+			true: 'spinner-sm',
+		},
+	},
+) -%}
+
 <div
-    class="spinner-{{ type }} text-{{ variant }}{% if small %} spinner-{{ type }}-sm{% endif %} {{ attributes.render('class') }}"
+    class="{{ style.apply({type, variant, small}, attributes.render('class')) }}"
     role="status"
     {{ attributes }}
 ></div>

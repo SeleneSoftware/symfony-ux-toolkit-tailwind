@@ -6,16 +6,34 @@
 {# @block content The modal content, typically includes `Modal:Header`, `Modal:Body`, and optionally `Modal:Footer` #}
 {%- props open = false, size = null, centered = false, scrollable = false, backdrop = 'dynamic' -%}
 
+{%- set style = html_cva(
+	base: 'modal-dialog',
+	variants: {
+		size: {
+			default: '',
+			sm: 'modal-sm',
+			lg: 'modal-lg',
+			xl: 'modal-xl',
+		},
+		centered: {
+			true: 'modal-dialog-centered',
+		},
+		scrollable: {
+			true: 'modal-dialog-scrollable',
+		},
+	},
+) -%}
+
 <div
 	id="{{ _modal_id }}"
-	class="modal fade {{ open ? 'show' : '' }}"
+	class="modal fade{% if open %} show{% endif%}"
 	tabindex="-1"
 	aria-hidden="true"
 	aria-labelledby="{{ _modal_id }}-title"
 	{% if backdrop == 'static' %}data-bs-backdrop="static" data-bs-keyboard="false"{% endif %}
 >
 	<div
-		class="modal-dialog{% if size %} modal-{{ size }}{% endif %}{% if centered %} modal-dialog-centered{% endif %}{% if scrollable %} modal-dialog-scrollable{% endif %} {{ attributes.render('class') }}"
+		class="{{ style.apply({size, centered, scrollable}, attributes.render('class')) }}"
 		{{ attributes }}
 	>
 		<div class="modal-content">

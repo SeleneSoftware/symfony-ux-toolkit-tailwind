@@ -1,8 +1,5 @@
 {# @block content The label text for a form control #}
 
-<label
-    class="form-label {{ attributes.render('class') }}"
-    {{ attributes }}
->
+<label class="form-label {{ attributes.render('class') }}" {{ attributes }}>
     {%- block content %}{% endblock -%}
 </label>

@@ -1,8 +1,5 @@
 {# @block content The main content of the modal #}
 
-<div
-	class="modal-body {{ attributes.render('class') }}"
-	{{ attributes }}
->
+<div class="modal-body {{ attributes.render('class') }}" {{ attributes }}>
 	{%- block content %}{% endblock -%}
 </div>

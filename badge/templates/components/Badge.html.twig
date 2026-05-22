@@ -4,9 +4,28 @@
 {# @block content The badge label or content #}
 {%- props variant = 'primary', as = 'span', shape = 'rounded' -%}
 
+{%- set style = html_cva(
+    base: 'badge',
+    variants: {
+        variant: {
+            primary: 'text-bg-primary',
+            secondary: 'text-bg-secondary',
+            success: 'text-bg-success',
+            danger: 'text-bg-danger',
+            warning: 'text-bg-warning',
+            info: 'text-bg-info',
+            light: 'text-bg-light',
+            dark: 'text-bg-dark',
+        },
+        shape: {
+            rounded: '',
+            pill: 'rounded-pill',
+        },
+    },
+) -%}
 
 <{{ as }}
-    class="badge text-bg-{{ variant }}{% if shape == 'pill' %} rounded-pill{% endif %} {{ attributes.render('class') }}"
+    class="{{ style.apply({variant, shape}, attributes.render('class')) }}"
     {{ attributes }}
 >
     {%- block content %}{% endblock -%}

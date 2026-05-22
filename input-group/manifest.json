@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
+    "$schema": "https://raw.githubusercontent.com/symfony/ux-toolkit/refs/heads/3.x/schema-kit-recipe-v1.json",
     "type": "component",
     "name": "Input Group",
     "description": "Bootstrap input group component to easily extend form controls by adding text, buttons, or button groups.",
@@ -7,6 +7,7 @@
         "templates/": "templates/"
     },
     "dependencies": {
+        "composer": ["twig/extra-bundle", "twig/html-extra:^3.12.0"],
         "recipe": ["input"]
     }
 }

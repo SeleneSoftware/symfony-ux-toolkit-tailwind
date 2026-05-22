@@ -1,8 +1,5 @@
 {# @block content The footer area, typically contains action buttons #}
 
-<div
-	class="modal-footer {{ attributes.render('class') }}"
-	{{ attributes }}
->
+<div class="modal-footer {{ attributes.render('class') }}" {{ attributes }}>
 	{%- block content %}{% endblock -%}
 </div>

@@ -1,8 +1,5 @@
 {# @block content The text content displayed in the input group #}
 
-<span
-	class="input-group-text {{ attributes.render('class') }}"
-	{{ attributes }}
->
+<span class="input-group-text {{ attributes.render('class') }}" {{ attributes }}>
 	{%- block content %}{% endblock -%}
 </span>

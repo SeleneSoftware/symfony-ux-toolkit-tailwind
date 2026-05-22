@@ -6,9 +6,6 @@
 {%- set vertical = orientation == 'vertical' -%}
 {%- set _defaultValue = defaultValue -%}
 
-<div
-    class="tab-content {{ attributes.render('class') }}"
-    {{ attributes }}
->
+<div class="tab-content {{ attributes.render('class') }}" {{ attributes }}>
     {%- block content %}{% endblock -%}
 </div>

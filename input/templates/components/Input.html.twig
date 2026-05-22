@@ -2,7 +2,21 @@
 {# @prop plaintext boolean Whether to use plaintext style #}
 {%- props size = null, plaintext = false -%}
 
+{%- set style = html_cva(
+	base: '',
+	variants: {
+		plaintext: {
+			false: 'form-control',
+			true: 'form-control-plaintext',
+		},
+		size: {
+			sm: 'form-control-sm',
+			lg: 'form-control-lg',
+		},
+	}
+) -%}
+
 <input
-    class="form-control{% if plaintext %}-plaintext{% endif %}{% if size %} form-control-{{ size }}{% endif %} {{ attributes.render('class') }}"
+	class="{{ style.apply({plaintext, size}, attributes.render('class')) }}"
     {{ attributes }}
 >

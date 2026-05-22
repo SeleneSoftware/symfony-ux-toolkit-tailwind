@@ -3,8 +3,22 @@
 {# @block content The pagination item content, typically a `Pagination:Link` #}
 {%- props active = false, disabled = false -%}
 
+{%- set style = html_cva(
+	base: 'page-item',
+	variants: {
+		active: {
+			default: '',
+			true: 'active'
+		},
+		disabled: {
+			default: '',
+			true: 'disabled'
+		},
+	},
+) -%}
+
 <li
-    class="page-item{% if active %} active{% endif %}{% if disabled %} disabled{% endif %} {{ attributes.render('class') }}"
+    class="{{ style.apply({active, disabled}, attributes.render('class')) }}"
     {{ attributes }}
 >
     {%- block content %}{% endblock -%}

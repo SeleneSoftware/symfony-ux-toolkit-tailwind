@@ -2,8 +2,19 @@
 {# @block content The pagination items, typically multiple `Pagination:Item` components #}
 {%- props size = null -%}
 
+{%- set style = html_cva(
+	base: 'pagination',
+	variants: {
+		size: {
+			default: '',
+			sm: 'pagination-sm',
+			lg: 'pagination-lg',
+		},
+	},
+) -%}
+
 <ul
-	class="pagination{% if size %} pagination-{{ size }}{% endif %} {{ attributes.render('class') }}"
+	class="{{ style.apply({size}, attributes.render('class')) }}"
 	{{ attributes }}
 >
 	{%- block content %}{% endblock -%}

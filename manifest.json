@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-v1.json",
+  "$schema": "https://raw.githubusercontent.com/symfony/ux-toolkit/refs/heads/3.x/schema-kit-v1.json",
   "name": "Bootstrap",
   "description": "Component kit based on Bootstrap 5.3, the most popular CSS framework for building responsive, mobile-first sites.",
   "license": "MIT",

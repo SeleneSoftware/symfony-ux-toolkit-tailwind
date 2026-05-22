@@ -16,18 +16,33 @@
     responsive = false
 -%}
 
-{% set tableClass = [
-    striped ? 'table-striped',
-    bordered ? 'table-bordered',
-    borderless ? 'table-borderless',
-    hover ? 'table-hover',
-    small ? 'table-sm',
-    dark ? 'table-dark'
-]|filter(v => v)|join(' ') %}
+{%- set style = html_cva(
+    base: 'table',
+    variants: {
+        striped: {
+            true: 'table-striped',
+        },
+        bordered: {
+            true: 'table-bordered',
+        },
+        borderless: {
+            true: 'table-borderless',
+        },
+        hover: {
+            true: 'table-hover',
+        },
+        small: {
+            true: 'table-sm',
+        },
+        dark: {
+            true: 'table-dark',
+        },
+    },
+) -%}
 
 {% if responsive %}<div class="table-responsive{% if responsive is not same as(true) %}-{{ responsive }}{% endif %}">{% endif %}
 <table
-    class="table {{ tableClass }} {{ attributes.render('class') }}"
+    class="{{ style.apply({striped, bordered, borderless, hover, small, dark}, attributes.render('class')) }}"
     {{ attributes }}
 >
     {%- block content %}{% endblock -%}

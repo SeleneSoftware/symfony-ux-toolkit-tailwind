@@ -2,6 +2,19 @@
 {# @block content The input field group elements, typically `Input`, `InputGroup:Text`, and/or `Button` #}
 {%- props size = null -%}
 
-<div class="input-group{% if size %} input-group-{{ size }}{% endif %} {{ attributes.render('class') }}" {{ attributes }}>
+{%- set style = html_cva(
+	base: 'input-group',
+	variants: {
+		size: {
+			sm: 'input-group-sm',
+			lg: 'input-group-lg',
+		},
+	},
+) -%}
+
+<div
+    class="{{ style.apply({size}, attributes.render('class')) }}"
+    {{ attributes }}
+>
     {%- block content %}{% endblock -%}
 </div>

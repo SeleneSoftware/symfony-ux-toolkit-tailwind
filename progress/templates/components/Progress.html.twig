@@ -13,12 +13,31 @@
     label = false
 -%}
 
-<div
-    class="progress {{ attributes.render('class') }}"
-    {{ attributes }}
->
+{%- set style = html_cva(
+	base: 'progress-bar',
+	variants: {
+		variant: {
+			primary: 'bg-primary',
+			secondary: 'bg-secondary',
+			success: 'bg-success',
+			danger: 'bg-danger',
+			warning: 'bg-warning',
+			info: 'bg-info',
+			light: 'bg-light',
+			dark: 'bg-dark',
+		},
+        striped: {
+            true: 'progress-bar-striped',
+        },
+        animated: {
+            true: 'progress-bar-animated',
+        },
+	},
+) -%}
+
+<div class="progress {{ attributes.render('class') }}" {{ attributes }}>
     <div
-        class="progress-bar bg-{{ variant }}{% if striped %} progress-bar-striped{% endif %}{% if animated %} progress-bar-animated{% endif %}"
+        class="{{ style.apply({variant, striped, animated}, attributes.render('class')) }}"
         role="progressbar"
         style="width: {{ (value / max * 100)|round }}%"
         aria-valuenow="{{ value }}"

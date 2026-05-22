@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/symfony/ux/refs/heads/3.x/src/Toolkit/schema-kit-recipe-v1.json",
+    "$schema": "https://raw.githubusercontent.com/symfony/ux-toolkit/refs/heads/3.x/schema-kit-recipe-v1.json",
     "type": "component",
     "name": "Button Group",
     "description": "Bootstrap button group component for grouping buttons together.",
@@ -7,6 +7,7 @@
         "templates/": "templates/"
     },
     "dependencies": {
+        "composer": ["twig/extra-bundle", "twig/html-extra:^3.12.0"],
         "recipe": ["button"]
     }
 }

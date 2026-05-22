@@ -4,8 +4,25 @@
 {# @block content The default block #}
 {%- props variant = 'tabs', fill = false, justify = false -%}
 
+{%- set style = html_cva(
+	base: 'nav',
+	variants: {
+		variant: {
+			tabs: 'nav-tabs',
+			pills: 'nav-pills',
+			underline: 'nav-underline',
+		},
+		justify: {
+			true: 'nav-justified',
+		},
+		fill: {
+			true: 'nav-fill',
+		},
+	},
+) -%}
+
 <ul
-	class="nav nav-{{ variant }}{% if justify %} nav-justified{% endif %} {% if fill %} nav-fill{% endif %} {{ attributes.render('class') }}"
+	class="{{ style.apply({variant, fill, justify}, attributes.render('class')) }}"
     role="tablist"
     aria-orientation="{% if vertical %}vertical{% else %}horizontal{% endif %}"
 	{{ attributes }}
