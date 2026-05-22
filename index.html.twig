@@ -21,7 +21,7 @@
 
     {% macro example_block(path, label) %}
         <div class="example-block border rounded-3 p-4 mb-3 bg-body-secondary">
-            <h5 class="mt-0 mb-3 fw-semibold">{{ label }}</h5>
+            <h3 class="mt-0 mb-3 fw-semibold">{{ label }}</h3>
             {% include path %}
         </div>
     {% endmacro %}
@@ -37,12 +37,12 @@
 
     {% set sections = {
         alert: {
-            'Demo (all variants)': 'alert/examples/Demo.html.twig',
+            'Demo': 'alert/examples/Demo.html.twig',
             'Dismissing': 'alert/examples/Dismissing.html.twig',
             'Action': 'alert/examples/Action.html.twig',
         },
         badge: {
-            'Demo (all variants)': 'badge/examples/Demo.html.twig',
+            'Demo': 'badge/examples/Demo.html.twig',
             'Pill': 'badge/examples/Pill.html.twig',
             'As link': 'badge/examples/As link.html.twig',
         },
@@ -51,7 +51,7 @@
             'Custom Separator': 'breadcrumb/examples/Custom Separator.html.twig',
         },
         button: {
-            'Demo (all variants)': 'button/examples/Demo.html.twig',
+            'Demo': 'button/examples/Demo.html.twig',
             'Outline': 'button/examples/Outline.html.twig',
             'Size': 'button/examples/Size.html.twig',
             'As link': 'button/examples/As link.html.twig',
@@ -106,7 +106,7 @@
             'Disabled': 'pagination/examples/Disabled.html.twig',
         },
         progress: {
-            'Demo (all variants)': 'progress/examples/Demo.html.twig',
+            'Demo': 'progress/examples/Demo.html.twig',
             'Striped': 'progress/examples/Striped.html.twig',
             'With label': 'progress/examples/With label.html.twig',
             'Animated': 'progress/examples/Animated.html.twig',
@@ -155,7 +155,6 @@
 
     <div class="container-fluid">
         <div class="row">
-
             <aside class="col-lg-2 d-none d-lg-block bg-body-tertiary border-end vh-100 position-sticky top-0 pt-3" style="overflow-y: auto;">
                 <nav id="sidebar-nav" class="nav flex-column gap-1 small">
                     <span class="text-muted text-uppercase fw-semibold small px-3 pb-1">Components</span>
@@ -164,18 +163,13 @@
                     {% endfor %}
                 </nav>
             </aside>
-
             <main class="col-lg-10 py-4 px-4">
-
                 <div class="mb-4">
                     <h1 class="fw-bold">Component Examples</h1>
-                    <p class="text-muted">Every example from every component directory (excluding <code>Usage.html.twig</code>).</p>
                 </div>
-
                 {% for section, examples in sections %}
                     {{ _self.section(section, examples) }}
                 {% endfor %}
-
             </main>
         </div>
     </div>
