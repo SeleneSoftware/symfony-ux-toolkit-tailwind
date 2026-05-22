@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Symfony UX Toolkit — Bootstrap Component Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .component-section { scroll-margin-top: 5rem; }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#sidebar-nav" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true">
+
+    <nav class="navbar navbar-dark bg-dark border-bottom border-secondary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-semibold" href="#">Symfony UX Toolkit — Bootstrap</a>
+            <span class="badge text-bg-light">Component Test Page</span>
+        </div>
+    </nav>
+
+    {% macro example_block(path, label) %}
+        <div class="example-block border rounded-3 p-4 mb-3 bg-body-secondary">
+            <h5 class="mt-0 mb-3 fw-semibold">{{ label }}</h5>
+            {% include path %}
+        </div>
+    {% endmacro %}
+
+    {% macro section(title, examples) %}
+        <section id="{{ title }}" class="component-section mb-5">
+            <h2 class="fw-bold border-bottom pb-2 mb-4 text-capitalize">{{ title }}</h2>
+            {% for label, path in examples %}
+                {{ _self.example_block(path, label) }}
+            {% endfor %}
+        </section>
+    {% endmacro %}
+
+    {% set sections = {
+        alert: {
+            'Demo (all variants)': 'alert/examples/Demo.html.twig',
+            'Dismissing': 'alert/examples/Dismissing.html.twig',
+            'Action': 'alert/examples/Action.html.twig',
+        },
+        badge: {
+            'Demo (all variants)': 'badge/examples/Demo.html.twig',
+            'Pill': 'badge/examples/Pill.html.twig',
+            'As link': 'badge/examples/As link.html.twig',
+        },
+        breadcrumb: {
+            'Demo': 'breadcrumb/examples/Demo.html.twig',
+            'Custom Separator': 'breadcrumb/examples/Custom Separator.html.twig',
+        },
+        button: {
+            'Demo (all variants)': 'button/examples/Demo.html.twig',
+            'Outline': 'button/examples/Outline.html.twig',
+            'Size': 'button/examples/Size.html.twig',
+            'As link': 'button/examples/As link.html.twig',
+            'Disabled': 'button/examples/Disabled.html.twig',
+            'Icon': 'button/examples/Icon.html.twig',
+            'Loading': 'button/examples/Loading.html.twig',
+        },
+        'button-group': {
+            'Demo': 'button-group/examples/Demo.html.twig',
+            'Size': 'button-group/examples/Size.html.twig',
+            'Orientation': 'button-group/examples/Orientation.html.twig',
+        },
+        card: {
+            'Demo': 'card/examples/Demo.html.twig',
+            'With image': 'card/examples/With image.html.twig',
+        },
+        checkbox: {
+            'Demo': 'checkbox/examples/Demo.html.twig',
+            'Inline': 'checkbox/examples/Inline.html.twig',
+            'Disabled': 'checkbox/examples/Disabled.html.twig',
+        },
+        collapsible: {
+            'Demo': 'collapsible/examples/Demo.html.twig',
+        },
+        input: {
+            'Demo': 'input/examples/Demo.html.twig',
+            'Size': 'input/examples/Size.html.twig',
+            'Readonly': 'input/examples/Readonly.html.twig',
+            'Plain text': 'input/examples/Plain text.html.twig',
+            'File': 'input/examples/File.html.twig',
+            'Disabled': 'input/examples/Disabled.html.twig',
+        },
+        'input-group': {
+            'Demo': 'input-group/examples/Demo.html.twig',
+            'Size': 'input-group/examples/Size.html.twig',
+        },
+        label: {
+            'Demo': 'label/examples/Demo.html.twig',
+            'Floating': 'label/examples/Floating.html.twig',
+        },
+        modal: {
+            'Demo': 'modal/examples/Demo.html.twig',
+            'Scrollable': 'modal/examples/Scrollable.html.twig',
+            'Centered': 'modal/examples/Centered.html.twig',
+            'Size': 'modal/examples/Size.html.twig',
+            'Static backdrop': 'modal/examples/Static.html.twig',
+        },
+        pagination: {
+            'Demo': 'pagination/examples/Demo.html.twig',
+            'Size': 'pagination/examples/Size.html.twig',
+            'Icon': 'pagination/examples/Icon.html.twig',
+            'Disabled': 'pagination/examples/Disabled.html.twig',
+        },
+        progress: {
+            'Demo (all variants)': 'progress/examples/Demo.html.twig',
+            'Striped': 'progress/examples/Striped.html.twig',
+            'With label': 'progress/examples/With label.html.twig',
+            'Animated': 'progress/examples/Animated.html.twig',
+        },
+        radio: {
+            'Demo': 'radio/examples/Demo.html.twig',
+            'Inline': 'radio/examples/Inline.html.twig',
+            'Disabled': 'radio/examples/Disabled.html.twig',
+        },
+        select: {
+            'Demo': 'select/examples/Demo.html.twig',
+            'Multiple': 'select/examples/Multiple.html.twig',
+            'Disabled': 'select/examples/Disabled.html.twig',
+        },
+        spinner: {
+            'Demo (both types)': 'spinner/examples/Demo.html.twig',
+            'Size': 'spinner/examples/Size.html.twig',
+            'Color': 'spinner/examples/Color.html.twig',
+        },
+        table: {
+            'Demo': 'table/examples/Demo.html.twig',
+            'Dark': 'table/examples/Dark.html.twig',
+            'Striped': 'table/examples/Striped.html.twig',
+            'Bordered': 'table/examples/Bordered.html.twig',
+            'Without border': 'table/examples/Without border.html.twig',
+            'Small': 'table/examples/Small.html.twig',
+            'Hoverable': 'table/examples/Hoverable.html.twig',
+            'Responsive': 'table/examples/Responsive.html.twig',
+            'Responsive with size': 'table/examples/Responsive with size.html.twig',
+        },
+        tabs: {
+            'Demo': 'tabs/examples/Demo.html.twig',
+            'Fill Nav': 'tabs/examples/Fill Nav.html.twig',
+            'Justify Nav': 'tabs/examples/Justify Nav.html.twig',
+            'Variant Pill': 'tabs/examples/Variant Pill.html.twig',
+            'Variant Line': 'tabs/examples/Variant Line.html.twig',
+            'Vertical': 'tabs/examples/Vertical.html.twig',
+            'Disabled tab': 'tabs/examples/Disabled.html.twig',
+        },
+        textarea: {
+            'Demo': 'textarea/examples/Demo.html.twig',
+            'Size': 'textarea/examples/Size.html.twig',
+            'Disabled': 'textarea/examples/Disabled.html.twig',
+        },
+    } %}
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <aside class="col-lg-2 d-none d-lg-block bg-body-tertiary border-end vh-100 position-sticky top-0 pt-3" style="overflow-y: auto;">
+                <nav id="sidebar-nav" class="nav flex-column gap-1 small">
+                    <span class="text-muted text-uppercase fw-semibold small px-3 pb-1">Components</span>
+                    {% for section, examples in sections %}
+                        <a class="nav-link py-1 px-3 rounded" href="#{{ section }}">{{ section|capitalize }}</a>
+                    {% endfor %}
+                </nav>
+            </aside>
+
+            <main class="col-lg-10 py-4 px-4">
+
+                <div class="mb-4">
+                    <h1 class="fw-bold">Component Examples</h1>
+                    <p class="text-muted">Every example from every component directory (excluding <code>Usage.html.twig</code>).</p>
+                </div>
+
+                {% for section, examples in sections %}
+                    {{ _self.section(section, examples) }}
+                {% endfor %}
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>
