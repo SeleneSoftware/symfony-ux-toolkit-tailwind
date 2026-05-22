@@ -11,13 +11,38 @@
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#sidebar-nav" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true">
-
     <nav class="navbar navbar-dark bg-dark border-bottom border-secondary sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand fw-semibold" href="#">Symfony UX Toolkit — Bootstrap</a>
-            <span class="badge text-bg-light">Component Test Page</span>
+            <div class="d-flex align-items-center gap-2 ms-auto">
+                <div class="form-check form-switch m-0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="themeToggle" checked>
+                    <label class="form-check-label small text-nowrap" for="themeToggle">Dark</label>
+                </div>
+                <span class="badge text-bg-light">Component Test Page</span>
+            </div>
         </div>
     </nav>
+
+    <script>
+        (function() {
+            const html = document.documentElement;
+            const toggle = document.getElementById('themeToggle');
+            const label = toggle.nextElementSibling;
+            const stored = localStorage.getItem('theme');
+            if (stored) {
+                html.dataset.bsTheme = stored;
+                toggle.checked = stored === 'dark';
+                label.textContent = stored.charAt(0).toUpperCase() + stored.slice(1);
+            }
+            toggle.addEventListener('change', function() {
+                const next = this.checked ? 'dark' : 'light';
+                html.dataset.bsTheme = next;
+                localStorage.setItem('theme', next);
+                label.textContent = next.charAt(0).toUpperCase() + next.slice(1);
+            });
+        })();
+    </script>
 
     {% macro example_block(path, label) %}
         <div class="example-block border rounded-3 p-4 mb-3 bg-body-secondary">
@@ -122,9 +147,14 @@
             'Disabled': 'select/examples/Disabled.html.twig',
         },
         spinner: {
-            'Demo (both types)': 'spinner/examples/Demo.html.twig',
+            'Demo': 'spinner/examples/Demo.html.twig',
             'Size': 'spinner/examples/Size.html.twig',
             'Color': 'spinner/examples/Color.html.twig',
+        },
+        switch: {
+            'Demo': 'switch/examples/Demo.html.twig',
+            'Inline': 'switch/examples/Inline.html.twig',
+            'Disabled': 'switch/examples/Disabled.html.twig',
         },
         table: {
             'Demo': 'table/examples/Demo.html.twig',
