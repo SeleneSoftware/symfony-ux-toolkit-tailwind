@@ -1,10 +1,10 @@
 {# @prop inline boolean Whether the radio container is inline. Defaults to false #}
 {# @block content The radio input, typically `Radio` #}
-{%- props inline = false -%}
 
-<div
-    class="form-check{% if inline %} form-check-inline{% endif%} {{ attributes.render('class') }}"
-    {{ attributes }}
->
+{%- set container_content -%}
     {%- block content %}{% endblock -%}
-</div>
+{%- endset -%}
+
+<twig:Checkbox:Container {{ ...attributes }}>
+    {{- container_content -}}
+</twig:Checkbox:Container>

@@ -5,5 +5,8 @@
     "description": "Bootstrap form switch input component.",
     "copy-files": {
         "templates/": "templates/"
+    },
+    "dependencies": {
+        "recipe": ["checkbox"]
     }
 }

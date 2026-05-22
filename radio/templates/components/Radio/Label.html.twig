@@ -1,5 +1,9 @@
 {# @block content The label of the radio input #}
 
-<label class="form-check-label {{ attributes.render('class') }}" {{ attributes }}>
+{%- set label_content -%}
     {%- block content %}{% endblock -%}
-</label>
+{%- endset -%}
+
+<twig:Checkbox:Label {{ ...attributes }}>
+    {{- label_content -}}
+</twig:Checkbox:Label>
