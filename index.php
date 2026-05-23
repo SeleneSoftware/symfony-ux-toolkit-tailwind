@@ -12,7 +12,7 @@ use Symfony\UX\TwigComponent\TwigComponentBundle;
 use Twig\Environment;
 use Twig\Extra\Html\HtmlExtension;
 
-$kernel = new class('dev', true) extends Kernel {
+$kernel = new class('test', false) extends Kernel {
     use MicroKernelTrait;
 
     public function registerBundles(): iterable
@@ -30,7 +30,7 @@ $kernel = new class('dev', true) extends Kernel {
 
     public function getCacheDir(): string
     {
-        return __DIR__.'/_cache/'.$this->environment;
+        return __DIR__."/_cache/kernel/$this->environment";
     }
 
     protected function configureContainer(ContainerConfigurator $container): void

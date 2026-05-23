@@ -1,0 +1,48 @@
+{# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark' The skeleton style variant. Defaults to `null` #}
+{# @prop as 'span' The HTML tag to render. Defaults to `span` #}
+{# @prop size 'lg'|'sm'|'xs' The skeleton size. Defaults to normal size #}
+{# @prop glow boolean Whether the skeleton should have a glow effect. Defaults to `false` #}
+{# @prop wave boolean Whether the skeleton should have a wave effect. Defaults to `false` #}
+{%- props variant = null, as = 'span', size = null, glow = false, wave = false -%}
+
+{%- set style = html_cva(
+	base: 'placeholder',
+	variants: {
+		variant: {
+			default: '',
+			primary: 'bg-primary',
+			secondary: 'bg-secondary',
+			success: 'bg-success',
+			danger: 'bg-danger',
+			warning: 'bg-warning',
+			info: 'bg-info',
+			light: 'bg-light',
+			dark: 'bg-dark',
+		},
+		size: {
+			default: '',
+			lg: 'placeholder-lg',
+			sm: 'placeholder-sm',
+			xs: 'placeholder-xs',
+		},
+	},
+) -%}
+
+{%- set animation_style = html_cva(
+	base: '',
+	variants: {
+		glow: {
+			true: 'placeholder-glow',
+		},
+		wave: {
+			true: 'placeholder-wave',
+		},
+	},
+) -%}
+
+{% if glow or wave %}<div class="{{ animation_style.apply({glow, wave}) }}">{% endif %}
+<{{ as }}
+	class="{{ style.apply({variant, size}, attributes.render('class')) }}"
+	{{ attributes }}
+></{{ as }}>
+{% if glow or wave %}</div>{% endif %}
