@@ -41,7 +41,7 @@ $kernel = new class('test', false) extends Kernel {
         }
 
         $container->extension('framework', [
-            'secret' => 'symfony-ux-toolkit-bootstrap',
+            'secret' => 'symfony-ux-toolkit-tailwind',
             'http_client' => true,
             'property_access' => true,
         ]);

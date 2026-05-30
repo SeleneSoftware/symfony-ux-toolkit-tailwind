@@ -1,7 +1,0 @@
-{%- set link_content -%}
-	{%- block content %}Next{% endblock -%}
-{%- endset -%}
-
-<twig:Pagination:Link {{ ...(attributes.defaults({ 'aria-label': 'Go to next page' })) }}>
-	{{ link_content }}
-</twig:Pagination:Link>

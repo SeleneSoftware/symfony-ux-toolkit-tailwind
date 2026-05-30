@@ -1,9 +1,0 @@
-{# @prop size 'sm'|'lg' The textarea size. Defaults to normal #}
-{%- props size = null -%}
-
-<textarea
-    class="form-control{% if size %} form-control-{{ size }}{% endif %} {{ attributes.render('class') }}"
-    {{ attributes }}
->
-    {%- block content %}{% endblock -%}
-</textarea>

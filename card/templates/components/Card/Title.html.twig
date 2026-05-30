@@ -1,7 +1,0 @@
-{# @prop as 'h5' The HTML tag to render. Defaults to `h5` #}
-{# @block content The title text of the card #}
-{%- props as = 'h5' -%}
-
-<{{ as }} class="card-title {{ attributes.render('class') }}" {{ attributes }}>
-    {%- block content %}{% endblock -%}
-</{{ as }}>

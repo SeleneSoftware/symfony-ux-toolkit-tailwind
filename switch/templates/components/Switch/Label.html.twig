@@ -1,9 +1,0 @@
-{# @block content The label of the switch input #}
-
-{%- set label_content -%}
-    {%- block content %}{% endblock -%}
-{%- endset -%}
-
-<twig:Checkbox:Label {{ ...attributes }}>
-    {{- label_content -}}
-</twig:Checkbox:Label>

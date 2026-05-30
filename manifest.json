@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/symfony/ux-toolkit/refs/heads/3.x/schema-kit-v1.json",
-  "name": "Bootstrap",
-  "description": "Component kit based on Bootstrap 5.3, the most popular CSS framework for building responsive, mobile-first sites.",
+  "name": "HyperUI",
+  "description": "Component kit based on HyperUI for TailwindCSS.",
   "license": "MIT",
   "homepage": "https://ux.symfony.com/toolkit"
 }

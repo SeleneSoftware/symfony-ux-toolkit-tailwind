@@ -1,9 +1,0 @@
-{
-    "$schema": "https://raw.githubusercontent.com/symfony/ux-toolkit/refs/heads/3.x/schema-kit-recipe-v1.json",
-    "type": "component",
-    "name": "Label",
-    "description": "Bootstrap form label component to identify and control form controls and other content.",
-    "copy-files": {
-        "templates/": "templates/"
-    }
-}

@@ -12,7 +12,7 @@
 eg. for Button:
 
 ```sh
-php bin/console ux:install button --kit https://github.com/sbolch/symfony-ux-toolkit-bootstrap
+php bin/console ux:install button --kit https://github.com/SeleneSoftware/symfony-ux-toolkit-tailwind
 ```
 
 ... and find them in your templates/components folder!
@@ -28,4 +28,4 @@ php bin/console ux:install button --kit https://github.com/sbolch/symfony-ux-too
 
 For component usage examples, see every components' examples folder.
 
-> Note: The package is in progress, Bootstrap components might still be missing and bugs might happen.
+> Note: The package is in progress, HyperUI components might still be missing and bugs might happen.

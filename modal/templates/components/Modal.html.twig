@@ -1,9 +1,0 @@
-{# @prop id string Unique identifier used to generate internal Modal IDs #}
-{# @block content The modal structure, typically includes `Modal:Trigger` and `Modal:Content` #}
-{%- props id -%}
-
-{%- set _modal_id = id -%}
-
-<div {{ attributes }}>
-    {%- block content %}{% endblock -%}
-</div>
