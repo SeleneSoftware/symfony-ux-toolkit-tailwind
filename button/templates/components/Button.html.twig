@@ -1,13 +1,10 @@
-{# @prop variant 'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark'|'link'|'outline-primary'|'outline-secondary'|'outline-success'|'outline-danger'|'outline-warning'|'outline-info'|'outline-light'|'outline-dark' The button style variant. Defaults to `primary` #}
-{# @prop size 'sm'|'lg' The button size. Defaults to normal size #}
-{# @prop as 'button' The HTML tag to render. Defaults to `button` #}
+{# @prop variant 'solid'|'hollow' The button style variant. Defaults to 'solid' #}
+{# @prop size null|'sm'|'lg' The button size. Defaults to null (normal size) #}
+{# @prop as 'button'|'a' The HTML tag to render. Defaults to 'button' #}
 {# @prop disabled boolean Whether the button is disabled. Defaults to false #}
 {# @block content The button label and/or icon #}
-{%- props variant = 'primary', size = null, as = 'button', disabled = false -%}
-{#
-inline-block rounded-sm border border-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600
-inline-block rounded-sm border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white
-#}
+
+{%- props variant = 'solid', size = null, as = 'button', disabled = false, color = "indigo-600" -%}
 {%- set style = html_cva(
     base: 'inline-block rounded-sm border border-indigo-600 px-12 py-3 text-sm font-medium',
     variants: {
