@@ -1,8 +1,8 @@
 {
     "$schema": "https://raw.githubusercontent.com/symfony/ux-toolkit/refs/heads/3.x/schema-kit-recipe-v1.json",
     "type": "component",
-    "name": "Link",
-    "description": "HyperUI button component for custom link styles.",
+    "name": "Logo",
+    "description": "HyperUI button component for custom logo styles.",
     "copy-files": {
         "templates/": "templates/"
     },

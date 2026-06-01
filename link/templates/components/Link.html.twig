@@ -1,10 +1,13 @@
-{% props variant = '' %}
+{% props variant = standard %}
 
 {% set style = html_cva(
 base: 'text-gray-500 transition hover:text-gray-500/75',
 variants: {
 variant:
-{},
+{
+nav:'',
+logo:'block text-teal-600',
+},
 },
 ) %}
 
