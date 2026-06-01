@@ -1,0 +1,13 @@
+{% props variant = '' %}
+
+{% set style = html_cva(
+base: 'text-gray-500 transition hover:text-gray-500/75',
+variants: {
+variant:
+{},
+},
+) %}
+
+<a class="{{ style.apply({variant}, attributes.render('class')) }}">
+    {%- block content %}{% endblock -%}
+</a>
