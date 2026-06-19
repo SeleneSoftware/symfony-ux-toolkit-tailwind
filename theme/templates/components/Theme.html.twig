@@ -1,0 +1,24 @@
+<style type="text/tailwindcss">
+{% block content %}
+    :root {
+        --color-brand-primary: #3b82f6;
+        --color-brand-secondary: #10b981;
+        --color-bg-main: #ffffff;
+        --color-text-main: #1f2937;
+    }
+
+    .dark {
+        --color-brand-primary: #60a5fa;
+        --color-brand-secondary: #34d399;
+        --color-bg-main: #111827;
+        --color-text-main: #f9fafb;
+    }
+
+    @theme {
+        --color-primary: var(--color-brand-primary);
+        --color-secondary: var(--color-brand-secondary);
+        --color-bg-custom: var(--color-bg-main);
+        --color-text-custom: var(--color-text-main);
+    }
+{% endblock %}
+</style>
