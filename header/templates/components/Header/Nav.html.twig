@@ -1,7 +1,7 @@
 <nav aria-label="Global" class="hidden md:block">
     <ul class="flex items-center gap-6 text-sm">
         {% block content %}
-            <twig:Header:Nav:Li href={{ path('app_default') }}>Home</twig:Header:Nav:Li>
+            <twig:Header:Nav:Li href="{{ path('app_default') }}">Home</twig:Header:Nav:Li>
         {% endblock %}
     </ul>
 </nav>
