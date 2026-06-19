@@ -1,27 +1,8 @@
 <nav aria-label="Global" class="hidden md:block">
-        <ul class="flex items-center gap-6 text-sm">
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> About </a>
-          </li>
+    <ul class="flex items-center gap-6 text-sm">
+        {% block content %}
+            <twig:Header:Nav:Li href={{ path('app_default') }}>Home</twig:Header:Nav:Li>
+        {% endblock %}
+    </ul>
+</nav>
 
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Careers </a>
-          </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> History </a>
-          </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Services </a>
-          </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Projects </a>
-          </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Blog </a>
-          </li>
-        </ul>
-      </nav>
