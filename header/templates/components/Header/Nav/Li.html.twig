@@ -11,5 +11,5 @@
 ) -%}
 
 <li>
-    <a class="{{ style.apply({variant}, attributes.render('class')) }}{% if as == 'a' and disabled %} disabled{% endif %}" {{ attributes }}>{% block content %}Link Name{% endblock %}</a>
+    <a class="{{ style.apply({variant}, attributes.render('class')) }}{% if disabled %} disabled{% endif %}" {{ attributes }}>{% block content %}Link Name{% endblock %}</a>
 </li>
